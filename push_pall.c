@@ -3,7 +3,8 @@ char *args;
 /**
  * push - push element to stack
  *@n: element
- * Return: true if its not empty, False otherwise
+ *@stack: top of the stack
+ *Return: true if its not empty, False otherwise
  */
 
 void push(stack_t **stack, unsigned int n)
@@ -32,6 +33,7 @@ void push(stack_t **stack, unsigned int n)
 
 /**
  * pall - prints all element in a stack
+ * @stack: top of the stack
  * @line: elements
  * Return: nothing
  */
