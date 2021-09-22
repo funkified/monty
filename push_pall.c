@@ -1,10 +1,11 @@
 #include "monty.h"
-
+char *args;
 /**
  * push - push element to stack
  *@n: element
  * Return: true if its not empty, False otherwise
  */
+
 void push(stack_t **stack, unsigned int n)
 {
 	stack_t *new = NULL;
@@ -18,36 +19,28 @@ void push(stack_t **stack, unsigned int n)
 	if (new == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
-		free(new);
+		free_stack(stack);
 		exit(EXIT_FAILURE);
 	}
-	new->n = n;
-	if (*stack != NULL)
-	{
-		new->next = *stack;
-		new->prev = (*stack)->prev;
-		(*stack)->prev = new;
-		*stack = new;
-	}
-	if (*stack == NULL)
-	{
-		new->next = NULL;
-		new->prev = NULL;
-		*stack = new;
-	}
-/*	new->n = atoi(arg);
+	new->n = atoi(args);
 	new->prev = NULL;
 	new->next = *stack;
 	if (*stack)
 		(*stack)->prev = new;
-*/
+	(*stack) = new;
 }
+
+/**
+ * pall - prints all element in a stack
+ * @line: elements
+ * Return: nothing
+ */
 
 void pall(stack_t **stack, unsigned int line)
 {
 	stack_t *temp;
 	(void)line;
-	
+
 	temp = *stack;
 	while (temp)
 	{

@@ -3,6 +3,8 @@
 
 #define _GNU_SOURCE
 
+extern char *args;
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -22,6 +24,7 @@
  * Description: doubly linked list node structure
  * for stack, queues, LIFO, FIFO
  */
+
 typedef struct stack_s
 {
         int n;
@@ -44,9 +47,11 @@ typedef struct instruction_s
 } instruction_t;
 void push(stack_t **stack, unsigned int n);
 void pall(stack_t **stack, unsigned int line);
+void pop(stack_t **stack, unsigned int line);
 void opcode_func(char *opcode, stack_t **stack, unsigned int line);
 void file_exec(FILE *file);
 void pint(stack_t **stack, unsigned int line);
 void free_stack(stack_t **stack);
 void read_file(char *file, stack_t **stack);
+bool find_arg(char *arg);
 #endif
