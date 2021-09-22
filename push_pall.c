@@ -35,22 +35,23 @@ void push(stack_t **stack, unsigned int n)
 		new->prev = NULL;
 		*stack = new;
 	}
+/*	new->n = atoi(arg);
+	new->prev = NULL;
+	new->next = *stack;
+	if (*stack)
+		(*stack)->prev = new;
+*/
 }
 
 void pall(stack_t **stack, unsigned int line)
 {
 	stack_t *temp;
 	(void)line;
-
+	
 	temp = *stack;
-
-	while (temp != NULL)
+	while (temp)
 	{
 		printf("%d\n", temp->n);
 		temp = temp->next;
-		if (temp == *stack)
-		{
-			return;
-		}
 	}
 }

@@ -1,6 +1,8 @@
 #ifndef MONTY_H
 #define MONTY_H
+
 #define _GNU_SOURCE
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -46,4 +48,5 @@ void opcode_func(char *opcode, stack_t **stack, unsigned int line);
 void file_exec(FILE *file);
 void pint(stack_t **stack, unsigned int line);
 void free_stack(stack_t **stack);
+void read_file(char *file, stack_t **stack);
 #endif
