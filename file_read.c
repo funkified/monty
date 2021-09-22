@@ -11,7 +11,7 @@ char *args;
 void file_exec(FILE *file)
 {
 
-	unsigned int line_number = 1;
+	unsigned int line_number = 0;
 	char *line = NULL;
 	char *opcode = NULL;
 	size_t size = 0;
@@ -25,8 +25,8 @@ void file_exec(FILE *file)
 			continue;
 		if (strcmp(opcode, "push") == 0)
 		{
-			args = strtok(NULL, " \n");
-			if (args != NULL && find_arg(args))
+			args = strtok(NULL, " \n\t\r");
+			if (args != NULL || find_arg(args))
 			{
 				push(&stack, line_number);
 			}
@@ -40,12 +40,9 @@ void file_exec(FILE *file)
 			}
 		}
 		else
-		{
 			opcode_func(opcode, &stack, line_number);
-		}
 	}
 	free(opcode);
 	free_stack(&stack);
-	exit(EXIT_SUCCESS);
 }
 
