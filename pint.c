@@ -25,3 +25,17 @@ void pint(stack_t **stack, unsigned int line)
 	}
 	printf("%d\n", temp->n);
 }
+
+void swap(stack_t **stack, unsigned int line)
+{
+	int data;
+
+	if (stack == NULL || *stack == NULL)
+	{
+		fprintf(stderr, "L%d: can't swap, stack too short", line);
+		exit(EXIT_FAILURE);
+	}
+	data = (*stack)->n;
+	(*stack)->n = (*stack)->next->n;
+	(*stack)->next->n = data;
+}
