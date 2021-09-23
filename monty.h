@@ -55,4 +55,5 @@ void free_stack(stack_t **stack);
 void read_file(char *file, stack_t **stack);
 bool find_arg(char *arg);
 void swap(stack_t **stack, unsigned int line);
+void add(stack_t **stack, unsigned int line);
 #endif

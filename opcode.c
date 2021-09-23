@@ -17,6 +17,7 @@ void opcode_func(char *opcode, stack_t **stack, unsigned int line)
 		{"pint", pint},
 		{"pop", pop},
 		{"swap", swap},
+		{"add", add},
 		{NULL, NULL}
 	};
 
