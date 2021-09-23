@@ -21,3 +21,14 @@ void add(stack_t **stack, unsigned int line)
 	(*stack)->prev = NULL;
 	free(temp);
 }
+/**
+ * nop - function that doesnt do anything
+ * @stack - top of the stack
+ * @line: line nu,ber of stack
+ * Return: Nothing
+ */
+void nop(stack_t **stack, unsigned int line)
+{
+	(void)stack;
+	(void)line;
+}
