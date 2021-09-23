@@ -1,7 +1,5 @@
 #include "monty.h"
 
-char *args;
-
 /**
  * file_exec - open an excecute a file
  * @file: file to be excecute
