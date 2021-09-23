@@ -1,5 +1,7 @@
 #include "monty.h"
+
 char *args;
+
 /**
  * push - push element to stack
  *@n: element
@@ -9,13 +11,14 @@ char *args;
 
 void push(stack_t **stack, unsigned int n)
 {
-	stack_t *new = NULL;
+	stack_t *new;
 
-	if (stack == NULL)
+	if (stack == NULL || args == NULL)
 	{
 		fprintf(stderr, "L%d: Error stack not found\n", n);
 		exit(EXIT_FAILURE);
 	}
+	n = atoi(args);
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
 	{
@@ -44,9 +47,11 @@ void pall(stack_t **stack, unsigned int line)
 	(void)line;
 
 	temp = *stack;
-	while (temp)
+	while (temp != NULL)
 	{
 		printf("%d\n", temp->n);
 		temp = temp->next;
+		if (temp == *stack)
+			return;
 	}
 }
