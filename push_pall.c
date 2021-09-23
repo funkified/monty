@@ -18,7 +18,6 @@ void push(stack_t **stack, unsigned int n)
 		fprintf(stderr, "L%d: Error stack not found\n", n);
 		exit(EXIT_FAILURE);
 	}
-	n = atoi(args);
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
 	{
