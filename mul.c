@@ -7,7 +7,7 @@
  * Return: Nothing
  */
 
-void _mul(stack_t **stack, unsigned int line)
+void mul(stack_t **stack, unsigned int line)
 {
 	stack_t *temp;
 
