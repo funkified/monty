@@ -45,6 +45,7 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+stack_t *add_dnodeint(stack_t **head, const int);
 void push(stack_t **stack, unsigned int n);
 void pall(stack_t **stack, unsigned int line);
 void pop(stack_t **stack, unsigned int line);

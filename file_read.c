@@ -9,10 +9,10 @@
 void file_exec(FILE *file)
 {
 
-	unsigned int line_number = 0;
+	unsigned int line_number = 1;
 	char *line = NULL;
 	char *opcode = NULL;
-	size_t size = 0;
+	size_t size = 1024;
 	stack_t *stack = NULL;
 
 	while (getline(&line, &size, file) != -1)
@@ -26,7 +26,8 @@ void file_exec(FILE *file)
 			args = strtok(NULL, " \n\t\r");
 			if (args != NULL || find_arg(args) != 0)
 			{
-				push(&stack, line_number);
+				add_dnodeint(&stack, atoi(args));
+				/*push(&stack, line_number);*/
 			}
 			else
 			{
