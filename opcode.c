@@ -21,6 +21,7 @@ void opcode_func(char *opcode, stack_t **stack, unsigned int line)
 		{"nop", nop},
 		{"sub", sub},
 		{"div", _div},
+		{"mul", _mul},
 		{NULL, NULL}
 	};
 
