@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * _mul - multiply the second top element with the top element of the stack
+ * mul - multiply the second top element with the top element of the stack
  * @stack: top of the stack
  * @line: line number
  * Return: Nothing
