@@ -74,9 +74,12 @@ bool find_arg(char *arg)
 	for (i = 0; arg[i] != '\0'; i++)
 	{
 		if (arg[0] == '-')
-			continue;
-		if (isdigit(arg[i + 1]) == 0)
-			return (false);
+		{
+			if (isdigit(arg[i + 1]) != 0)
+				continue;
+			if (isdigit(arg[i + 1]) == 0)
+				return (false);
+		}
 	}
 	return (true);
 }
