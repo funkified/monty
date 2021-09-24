@@ -25,23 +25,22 @@ void opcode_func(char *opcode, stack_t **stack, unsigned int line)
 		{NULL, NULL}
 	};
 
-	for (i = 0; opcodes[i].opcode != NULL && i < 10; i++)
+	for (i = 0; opcodes[i].opcode != NULL; i++)
 	{
 		if (strcmp(opcodes[i].opcode, opcode) == 0)
 		{
 			(opcodes[i].f)(stack, line);
 			return;
 		}
+		if (opcodes[i].opcode == NULL)
+		{
+			fprintf(stderr, "L%d: unknown instruction %s\n", line, opcode);
+			exit(EXIT_FAILURE);
+			free(opcode);
+			free_stack(stack);
+		}
 	}
-	if (opcodes[i].opcode == NULL)
-	{
-		fprintf(stderr, "L%d: unknown instruction %s\n", line, opcode);
-		exit(EXIT_FAILURE);
-	}
-	free(opcode);
-	free_stack(stack);
 }
-
 /**
  * free_stack - frees memory of the stack
  * @stack: ehad 0f the stack
@@ -72,11 +71,11 @@ bool find_arg(char *arg)
 {
 	int i;
 
-	for (i = 0; arg[i]; i++)
+	for (i = 0; arg[i] != '\0'; i++)
 	{
 		if (arg[0] == '-')
 			continue;
-		if (isdigit(arg[i]) == 0)
+		if (isdigit(arg[i + 1]) == 0)
 			return (false);
 	}
 	return (true);
