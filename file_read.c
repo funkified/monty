@@ -24,7 +24,7 @@ void file_exec(FILE *file)
 		if (strcmp(opcode, "push") == 0)
 		{
 			args = strtok(NULL, " \n\t\r");
-			if (args != NULL || find_arg(args))
+			if (args != NULL || find_arg(args) != 0)
 			{
 				push(&stack, line_number);
 			}

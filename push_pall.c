@@ -18,7 +18,7 @@ void push(stack_t **stack, unsigned int n)
 		fprintf(stderr, "L%d: Error stack not found\n", n);
 		exit(EXIT_FAILURE);
 	}
-	new = malloc(sizeof(stack_t));
+	new = malloc(sizeof(stack_t) * 1024);
 	if (new == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
