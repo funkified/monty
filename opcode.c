@@ -25,7 +25,7 @@ void opcode_func(char *opcode, stack_t **stack, unsigned int line)
 		{NULL, NULL}
 	};
 
-	for (i = 0; opcodes[i].opcode != NULL; i++)
+	for (i = 0; opcodes[i].opcode != NULL && i < 10; i++)
 	{
 		if (strcmp(opcodes[i].opcode, opcode) == 0)
 		{
@@ -33,10 +33,13 @@ void opcode_func(char *opcode, stack_t **stack, unsigned int line)
 			return;
 		}
 	}
-	fprintf(stderr, "L%d: unknown instruction %s\n", line, opcode);
+	if (opcodes[i].opcode == NULL)
+	{
+		fprintf(stderr, "L%d: unknown instruction %s\n", line, opcode);
+		exit(EXIT_FAILURE);
+	}
 	free(opcode);
 	free_stack(stack);
-	exit(EXIT_FAILURE);
 }
 
 /**
